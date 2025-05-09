@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Schedule1ConsoleApp/1.0.0": {
+        "runtime": {
+          "Schedule1ConsoleApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Schedule1ConsoleApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
