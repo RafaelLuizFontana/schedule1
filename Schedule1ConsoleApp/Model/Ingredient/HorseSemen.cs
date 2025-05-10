@@ -12,6 +12,10 @@ public class HorseSemen : IIngredient
         return new LongFaced();
     }
 
+    public decimal Cost(){
+        return 9.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

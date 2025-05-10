@@ -12,6 +12,10 @@ public class Donut : IIngredient
         return new CalorieDense();
     }
 
+    public decimal Cost(){
+        return 3.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

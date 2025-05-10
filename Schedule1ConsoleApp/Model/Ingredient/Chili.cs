@@ -12,6 +12,10 @@ public class Chili : IIngredient
         return new Spicy();
     }
 
+    public decimal Cost(){
+        return 7.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

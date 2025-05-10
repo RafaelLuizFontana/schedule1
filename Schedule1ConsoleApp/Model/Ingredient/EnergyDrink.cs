@@ -12,6 +12,10 @@ public class EnergyDrink : IIngredient
         return new Athletic();
     }
 
+    public decimal Cost(){
+        return 6.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

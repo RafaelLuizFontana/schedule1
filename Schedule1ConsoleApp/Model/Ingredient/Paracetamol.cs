@@ -12,6 +12,10 @@ public class Paracetamol : IIngredient
         return new Sneaky();
     }
 
+    public decimal Cost(){
+        return 3.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

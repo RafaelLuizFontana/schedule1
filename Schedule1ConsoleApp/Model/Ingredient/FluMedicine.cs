@@ -12,6 +12,10 @@ public class FluMedicine : IIngredient
         return new Sedating();
     }
 
+    public decimal Cost(){
+        return 5.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

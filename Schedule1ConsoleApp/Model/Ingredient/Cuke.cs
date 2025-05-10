@@ -12,6 +12,10 @@ public class Cuke : IIngredient
         return new Energizing();
     }
 
+    public decimal Cost(){
+        return 2.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

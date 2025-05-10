@@ -12,6 +12,10 @@ public class MotorOil : IIngredient
         return new Slippery();
     }
 
+    public decimal Cost(){
+        return 6.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

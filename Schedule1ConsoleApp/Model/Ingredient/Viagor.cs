@@ -12,6 +12,10 @@ public class Viagor : IIngredient
         return new TropicThunder();
     }
 
+    public decimal Cost(){
+        return 4.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

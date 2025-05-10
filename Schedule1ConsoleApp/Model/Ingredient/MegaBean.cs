@@ -12,6 +12,10 @@ public class MegaBean : IIngredient
         return new Foggy();
     }
 
+    public decimal Cost(){
+        return 7.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

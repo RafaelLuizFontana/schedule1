@@ -12,3 +12,4 @@ c:\Users\rafae\OneDrive\Documentos\schedule1\Schedule1ConsoleApp\obj\Debug\net9.
 c:\Users\rafae\OneDrive\Documentos\schedule1\Schedule1ConsoleApp\obj\Debug\net9.0\Schedule1ConsoleApp.pdb
 c:\Users\rafae\OneDrive\Documentos\schedule1\Schedule1ConsoleApp\obj\Debug\net9.0\Schedule1ConsoleApp.genruntimeconfig.cache
 c:\Users\rafae\OneDrive\Documentos\schedule1\Schedule1ConsoleApp\obj\Debug\net9.0\ref\Schedule1ConsoleApp.dll
+C:\Users\rafae\OneDrive\Documentos\schedule1\Schedule1ConsoleApp\obj\Debug\net9.0\Schedule1ConsoleApp.sourcelink.json

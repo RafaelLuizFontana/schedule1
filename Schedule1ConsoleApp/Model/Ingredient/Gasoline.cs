@@ -14,6 +14,10 @@ public class Gasoline : IIngredient
         return new Toxic();
     }
 
+    public decimal Cost(){
+        return 5.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }

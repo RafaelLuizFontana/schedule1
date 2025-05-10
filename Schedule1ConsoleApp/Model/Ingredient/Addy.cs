@@ -15,6 +15,11 @@ public class Addy : IIngredient
     public override int GetHashCode() {
         return 0;
     }
+
+    public decimal Cost()
+    {
+        return 9.0m;
+    }
     
     public override bool Equals(object? obj) {
         if (obj == null || GetType() != obj.GetType()) return false;

@@ -14,6 +14,10 @@ public class MouthWash : IIngredient
         return new Balding();
     }
 
+    public decimal Cost(){
+        return 4.0m;
+    }
+
     public override int GetHashCode() {
         return 0;
     }
