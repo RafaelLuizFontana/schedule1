@@ -1,3 +1,6 @@
+using Schedule1ConsoleApp.Model.Drug;
+using Schedule1ConsoleApp.Model.Interface;
+
 namespace Schedule1ConsoleApp.Model.Ingredient;
 
 public class Donut : IIngredient
@@ -14,6 +17,61 @@ public class Donut : IIngredient
 
     public decimal Cost(){
         return 3.0m;
+    }
+
+    public GenericMix Mix(IBaseDrug drug){
+        GenericMix genericMix;
+        if (drug is GenericMix mix)
+        {
+            genericMix = mix;
+        } else {
+            genericMix = new(drug);
+        }
+        EffectList effects = genericMix.Effects();
+        foreach(EffectListItem effect in  effects.GetEffects()){
+            switch(effect.Effect){
+                case AntiGravity antiGravity:
+                    effects.SetEffect(antiGravity, false);
+                    effects.SetEffect(new CalorieDense());
+                    effects.SetEffect(new Slippery());
+                    break;
+                case Balding balding:
+                    effects.SetEffect(balding, false);
+                    effects.SetEffect(new CalorieDense());
+                    effects.SetEffect(new Sneaky());
+                    break;
+                case CalorieDense calorieDense:
+                    if(!effects.HasEffect(new Explosive())){
+                        effects.SetEffect(calorieDense, false);
+                        effects.SetEffect(new Explosive());
+                    }
+                    break;
+                case Focused focused:
+                    effects.SetEffect(focused, false);
+                    effects.SetEffect(new CalorieDense());
+                    effects.SetEffect(new Euphoric());
+                    break;
+                case Jennerising jennerising:
+                    effects.SetEffect(jennerising, false);
+                    effects.SetEffect(new CalorieDense());
+                    effects.SetEffect(new Gingeritis());
+                    break;
+                case Munchies munchies:
+                    effects.SetEffect(munchies, false);
+                    effects.SetEffect(new CalorieDense());
+                    effects.SetEffect(new Calming());
+                    break;
+                case Shrinking shrinking:
+                    effects.SetEffect(shrinking, false);
+                    effects.SetEffect(new CalorieDense());
+                    effects.SetEffect(new Energizing());
+                    break;
+                default:
+                    effects.SetEffect(new CalorieDense());
+                    break;
+            }
+        }
+        return genericMix;
     }
 
     public override int GetHashCode() {

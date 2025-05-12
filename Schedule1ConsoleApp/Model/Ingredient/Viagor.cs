@@ -1,3 +1,6 @@
+using Schedule1ConsoleApp.Model.Drug;
+using Schedule1ConsoleApp.Model.Interface;
+
 namespace Schedule1ConsoleApp.Model.Ingredient;
 
 public class Viagor : IIngredient
@@ -14,6 +17,40 @@ public class Viagor : IIngredient
 
     public decimal Cost(){
         return 4.0m;
+    }
+
+    public GenericMix Mix(IBaseDrug drug){
+        GenericMix genericMix;
+        if (drug is GenericMix mix)
+        {
+            genericMix = mix;
+        } else {
+            genericMix = new(drug);
+        }
+        EffectList effects = genericMix.Effects();
+        foreach(EffectListItem effect in  effects.GetEffects()){
+            switch(effect.Effect){
+                case Athletic athletic:
+                    effects.SetEffect(athletic, false);
+                    effects.SetEffect(new Sneaky());
+                    break;
+                case Disorienting disorienting:
+                    effects.SetEffect(disorienting, false);
+                    effects.SetEffect(new Toxic());
+                    break;
+                case Euphoric euphoric:
+                    effects.SetEffect(euphoric, false);
+                    effects.SetEffect(new BrightEyed());
+                    break;
+                case Laxative laxative:
+                    effects.SetEffect(laxative, false);
+                    effects.SetEffect(new Calming());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return genericMix;
     }
 
     public override int GetHashCode() {

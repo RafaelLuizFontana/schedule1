@@ -1,3 +1,6 @@
+using Schedule1ConsoleApp.Model.Drug;
+using Schedule1ConsoleApp.Model.Interface;
+
 namespace Schedule1ConsoleApp.Model.Ingredient;
 
 public class Chili : IIngredient
@@ -14,6 +17,48 @@ public class Chili : IIngredient
 
     public decimal Cost(){
         return 7.0m;
+    }
+
+    public GenericMix Mix(IBaseDrug drug){
+        GenericMix genericMix;
+        if (drug is GenericMix mix)
+        {
+            genericMix = mix;
+        } else {
+            genericMix = new(drug);
+        }
+        EffectList effects = genericMix.Effects();
+        foreach(EffectListItem effect in effects.GetEffects()){
+            switch(effect.Effect){
+                case AntiGravity antiGravity:
+                    effects.SetEffect(antiGravity, false);
+                    effects.SetEffect(new TropicThunder());
+                    break;
+                case Athletic athletic:
+                    effects.SetEffect(athletic, false);
+                    effects.SetEffect(new Euphoric());
+                    break;
+                case Laxative laxative:
+                    effects.SetEffect(laxative, false);
+                    effects.SetEffect(new LongFaced());
+                    break;
+                case Munchies munchies:
+                    effects.SetEffect(munchies, false);
+                    effects.SetEffect(new Toxic());
+                    break;
+                case Shrinking shrinking:
+                    effects.SetEffect(shrinking, false);
+                    effects.SetEffect(new Refreshing());
+                    break;
+                case Sneaky sneaky:
+                    effects.SetEffect(sneaky, false);
+                    effects.SetEffect(new BrightEyed());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return genericMix;
     }
 
     public override int GetHashCode() {
