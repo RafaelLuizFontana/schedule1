@@ -182,5 +182,4 @@ void InitApp(){
 mixes = [];
 drug = new OGKush();
 iterations = 0;
-totalIterations = 0;
 }
