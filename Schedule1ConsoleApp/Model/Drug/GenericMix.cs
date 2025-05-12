@@ -1,5 +1,4 @@
 using Schedule1ConsoleApp.Model.Effect;
-using Schedule1ConsoleApp.Model.Ingredient;
 using Schedule1ConsoleApp.Model.Interface;
 
 namespace Schedule1ConsoleApp.Model.Drug;

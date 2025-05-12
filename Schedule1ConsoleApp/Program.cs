@@ -7,8 +7,7 @@ using Schedule1ConsoleApp.Model.Interface;
 List<IIngredient> ingredients;
 List<GenericMix> mixes;
 IBaseDrug drug;
-long iterations;
-long totalIterations;
+int iterations;
 InitApp();
 Console.WriteLine("Welcome to the Schedule 1 Console App!");
 bool selectDrug = true;
@@ -72,15 +71,19 @@ while (selectDrug)
             if (int.TryParse(input, out int numberOfMixes) && numberOfMixes > 0)
             {
                 mixNumber = numberOfMixes;
-                totalIterations = (long)Math.Pow(16, mixNumber);
                 Console.WriteLine($"You selected {mixNumber} mix(es).");
                 Console.WriteLine("");
-                Console.WriteLine("Completed:");
+                FirstMix();
+                mixNumber--;
+                while(mixNumber-- > 0){
+                    Mix();
+                }
+                Console.WriteLine("Unique mixes found:");
                 Console.Write($"{iterations}");
-                Mix(drug, mixNumber);
+                //Mix(drug, mixNumber);
                 Console.WriteLine("");
                 //Console.WriteLine($"Mixes created: {mixes.Count}");
-                GenericMix maxValueMix = mixes[0];//mixes.MaxBy(x => x.Value());
+                GenericMix maxValueMix = mixes.MaxBy(x => x.Value());
                 Console.WriteLine($"Best mix:");
                 Console.WriteLine($"{maxValueMix.BaseDrug().Name()} with:");
                 foreach(IIngredient ingredient in maxValueMix.Ingredients()){
@@ -128,6 +131,7 @@ while (selectDrug)
     }
 }
 
+/*
 void Mix(IBaseDrug baseDrug, int iteration){
     GenericMix mix = new(baseDrug);
     if (iteration > 0){
@@ -143,11 +147,40 @@ void Mix(IBaseDrug baseDrug, int iteration){
             Console.Write($"{(100.0*iterations/totalIterations).ToString("0.0000")}%");
     }
 }
+*/
+
+void FirstMix(){
+    Parallel.ForEach(ingredients, ingredient =>{
+        GenericMix mix = new(drug);
+        mix.AddIngredient(ingredient);
+        mixes.Add(mix);
+        iterations++;
+        //Console.SetCursorPosition(0, Console.CursorTop);
+        //Console.Write($"{(iterations)}");
+    });
+}
+
+void Mix(){
+    List<GenericMix> newMixes = [];
+    Parallel.ForEach(ingredients, ingredient =>{
+        Parallel.ForEach(mixes, mix =>{
+            GenericMix genericMix = new (mix);
+            genericMix.AddIngredient(ingredient);
+            if(!mixes.Any(x => x.Equals(genericMix))){
+                newMixes.Add(genericMix);
+                iterations++;
+                //Console.SetCursorPosition(0, Console.CursorTop);
+                //Console.Write($"{(iterations)}");
+            }
+        });
+    });
+    mixes = newMixes;
+}
 
 /*void AddUnique(GenericMix mix){
     if (mixes.Contains(mix)) return;
     mixes.Add(mix);
-}*/
+}
 
 void AddMaxValue(GenericMix mix){
     if(mixes.Count == 1) {
@@ -158,6 +191,7 @@ void AddMaxValue(GenericMix mix){
         mixes.Add(mix);
     }
 }
+*/
 
 void InitApp(){
     ingredients =

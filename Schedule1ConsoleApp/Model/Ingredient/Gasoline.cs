@@ -1,6 +1,4 @@
-using System;
 using Schedule1ConsoleApp.Model.Drug;
-using Schedule1ConsoleApp.Model.Interface;
 
 namespace Schedule1ConsoleApp.Model.Ingredient;
 
@@ -20,14 +18,7 @@ public class Gasoline : IIngredient
         return 5.0m;
     }
 
-    public GenericMix Mix(IBaseDrug drug){
-        GenericMix genericMix;
-        if (drug is GenericMix mix)
-        {
-            genericMix = mix;
-        } else {
-            genericMix = new(drug);
-        }
+    public GenericMix Mix(GenericMix genericMix){
         EffectList effects = genericMix.Effects();
         foreach(EffectListItem effect in  effects.GetEffects()){
             switch(effect.Effect){
