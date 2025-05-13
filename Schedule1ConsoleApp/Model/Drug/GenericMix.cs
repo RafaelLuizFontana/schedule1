@@ -64,7 +64,11 @@ public class GenericMix: IBaseDrug
         foreach (var ingredient in ingredients){
             cost += ingredient.Cost();
         }
-        return Value() - cost;
+        return cost;
+    }
+
+    public decimal Profit(){
+        return Value() - Cost();
     }
 
     public EffectList Effects()

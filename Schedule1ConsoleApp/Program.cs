@@ -83,7 +83,7 @@ while (selectDrug)
                 //Mix(drug, mixNumber);
                 Console.WriteLine("");
                 //Console.WriteLine($"Mixes created: {mixes.Count}");
-                GenericMix maxValueMix = mixes.MaxBy(x => x.Cost());
+                GenericMix maxValueMix = mixes.MaxBy(x => x.Profit());
                 Console.WriteLine($"Best mix:");
                 Console.WriteLine($"{maxValueMix.BaseDrug().Name()} with:");
                 foreach(IIngredient ingredient in maxValueMix.Ingredients()){
