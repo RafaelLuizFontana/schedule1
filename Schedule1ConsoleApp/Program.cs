@@ -153,8 +153,6 @@ void FirstMix(){
         mix.AddIngredient(ingredient);
         mixes.Add(mix);
         iterations++;
-        //Console.SetCursorPosition(0, Console.CursorTop);
-        //Console.Write($"{(iterations)}");
     });
 }
 
@@ -167,8 +165,6 @@ void Mix(){
             if(!mixes.Any(x => x.Equals(genericMix))){
                 newMixes.Add(genericMix);
                 iterations++;
-                //Console.SetCursorPosition(0, Console.CursorTop);
-                //Console.Write($"{(iterations)}");
             }
         });
     });
