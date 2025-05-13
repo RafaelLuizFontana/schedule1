@@ -52,11 +52,15 @@ public class GenericMix: IBaseDrug
     public decimal Value()
     {
         decimal  sum = 1;
+        decimal cost = 0;
         foreach (var effectListItem in effects.GetEffects())
         {
             sum += effectListItem.Effect.Multiplier();
         }
-        return sum * baseDrug.BaseValue();
+        foreach (var ingredient in ingredients){
+            cost += ingredient.Cost();
+        }
+        return sum * baseDrug.BaseValue() - cost;
     }
 
     public EffectList Effects()
