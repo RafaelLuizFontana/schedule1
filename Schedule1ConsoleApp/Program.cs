@@ -78,23 +78,21 @@ while (selectDrug)
                 while(mixNumber-- > 0){
                     Mix();
                 }
-                Console.WriteLine("Unique mixes found:");
-                Console.Write($"{iterations}");
-                //Mix(drug, mixNumber);
-                Console.WriteLine("");
-                //Console.WriteLine($"Mixes created: {mixes.Count}");
+                Console.WriteLine($"Unique mixes found: {iterations}");
                 GenericMix maxValueMix = mixes.MaxBy(x => x.Profit());
-                Console.WriteLine($"Best mix:");
+                Console.WriteLine("Best mix:");
                 Console.WriteLine($"{maxValueMix.BaseDrug().Name()} with:");
                 foreach(IIngredient ingredient in maxValueMix.Ingredients()){
-                    Console.WriteLine($"--> {ingredient.Name()}");
+                    Console.WriteLine($"--> {ingredient.Name()} ({Math.Round(ingredient.Cost())}$)");
                 }
                 Console.WriteLine("Effects:");
                 foreach(EffectListItem effect in maxValueMix.Effects().GetEffects()){
                     Console.WriteLine($"{effect.Effect.Name()}");
                 }
-                Console.WriteLine("------------");
-                Console.WriteLine($"Value: {Math.Round(maxValueMix.Value())}$");
+                Console.WriteLine("-------------");
+                Console.WriteLine($"Value:  {Math.Round(maxValueMix.Value())}$");
+                Console.WriteLine($"Cost:   {Math.Round(maxValueMix.Cost())}$");
+                Console.WriteLine($"Profit: {Math.Round(maxValueMix.Profit())}$");
                 Console.WriteLine("");
                 bool enterYesNo = true;
                 Console.WriteLine("Continue mixing? (y/n)");
