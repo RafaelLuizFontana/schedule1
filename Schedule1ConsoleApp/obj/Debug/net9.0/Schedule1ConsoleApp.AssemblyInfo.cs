@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Schedule1ConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d941304bfe16628035415cabff28586d0d89f9bf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29f1b0a8aa2d94a160c7d43579908ae312472d1e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Schedule1ConsoleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Schedule1ConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
