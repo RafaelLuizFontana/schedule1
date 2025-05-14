@@ -1,4 +1,4 @@
-# Schedule I auto mixer
+# [Schedule I](https://store.steampowered.com/app/3164500/Schedule_I/) auto mixer
 Select a drug and a number of mixes to get the most profitable one.
 
 ## Example:
