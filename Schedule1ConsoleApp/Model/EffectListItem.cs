@@ -1,5 +1,3 @@
-using System;
-
 namespace Schedule1ConsoleApp.Model;
 
 public class EffectListItem(IEffect effect, bool isPresent = false)

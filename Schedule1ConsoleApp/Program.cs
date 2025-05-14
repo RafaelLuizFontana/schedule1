@@ -129,24 +129,6 @@ while (selectDrug)
     }
 }
 
-/*
-void Mix(IBaseDrug baseDrug, int iteration){
-    GenericMix mix = new(baseDrug);
-    if (iteration > 0){
-        foreach (IIngredient ingredient in ingredients){
-            mix = new(baseDrug);
-            mix.AddIngredient(ingredient);
-            Mix(mix, iteration - 1);
-        }
-    } else{
-        AddMaxValue(mix);
-        iterations++;
-            Console.SetCursorPosition(0, Console.CursorTop);
-            Console.Write($"{(100.0*iterations/totalIterations).ToString("0.0000")}%");
-    }
-}
-*/
-
 void FirstMix(){
     Parallel.ForEach(ingredients, ingredient =>{
         GenericMix mix = new(drug);
@@ -170,22 +152,6 @@ void Mix(){
     });
     mixes = newMixes;
 }
-
-/*void AddUnique(GenericMix mix){
-    if (mixes.Contains(mix)) return;
-    mixes.Add(mix);
-}
-
-void AddMaxValue(GenericMix mix){
-    if(mixes.Count == 1) {
-        if(mix.Value() > mixes[0].Value()){
-            mixes[0] = mix;
-        }
-    } else {
-        mixes.Add(mix);
-    }
-}
-*/
 
 void InitApp(){
     ingredients =

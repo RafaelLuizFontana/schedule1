@@ -1,4 +1,3 @@
-using System;
 using Schedule1ConsoleApp.Model.Effect;
 
 namespace Schedule1ConsoleApp.Model;
