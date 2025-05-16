@@ -1,5 +1,3 @@
-using System;
-
 namespace Schedule1ConsoleApp.Model;
 
 public class Cyclopean : IEffect

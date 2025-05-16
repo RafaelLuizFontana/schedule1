@@ -99,7 +99,7 @@ public class EffectList
     }
 
     public bool HasEffect(IEffect effect){
-        EffectListItem? listItem = effectList.Find(x => x.Effect.Name() == effect.Name()) ?? throw new ArgumentException($"Effect {effect.Name()} not found in the list.");
+        EffectListItem listItem = effectList.Find(x => x.Effect.Name() == effect.Name()) ?? throw new ArgumentException($"Effect {effect.Name()} not found in the list.");
         return listItem.IsPresent;
     }
 
