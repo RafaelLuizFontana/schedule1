@@ -1,6 +1,3 @@
-using System;
-using Schedule1ConsoleApp.Model;
-
 namespace Schedule1ConsoleApp.Model;
 
 public interface IEffect

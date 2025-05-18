@@ -1,5 +1,3 @@
-using Schedule1ConsoleApp.Model;
-
 namespace Schedule1ConsoleApp.Model;
 
 public class Untyped : IEffectType
