@@ -48,6 +48,7 @@ void InitIngrediets()
 void InitApp()
 {
     drug = null;
+    Console.WriteLine("DEBUG-> new mixes");
     mixes = [];
     iterations = 0;
     exitApp = false;
@@ -274,12 +275,14 @@ void FirstMix(){
     Parallel.ForEach(ingredients, ingredient =>{
         GenericMix mix = new(drug);
         mix.AddIngredient(ingredient);
+        Console.WriteLine("DEBUG-> add mix to mixes");
         mixes.Add(mix);
         iterations++;
     });
 }
 
 void Mix(){
+    Console.WriteLine("DEBUG-> new newMixes");
     List<GenericMix> newMixes = [];
     Parallel.ForEach(ingredients, ingredient =>{
         Parallel.ForEach(mixes, mix =>{
@@ -291,6 +294,7 @@ void Mix(){
             }
         });
     });
+    Console.WriteLine("DEBUG-> new mixes to mix");
     mixes = newMixes;
 }
 
@@ -340,6 +344,7 @@ void FindMix(EffectList effectList){
     bool found = false;
     GenericMix genericMix;
     while(!found){
+        Console.WriteLine("DEBUG-> new newMixes");
         List<GenericMix> newMixes = [];
         //Loop for all ingredients
         for(int i=0; i<ingredients.Count; i++)
@@ -394,6 +399,8 @@ void FindMix(EffectList effectList){
                 break;
             }
         }
+        if (found) break;
+        Console.WriteLine("DEBUG-> newMixes to mixes");
         mixes = newMixes;
     }
 }
